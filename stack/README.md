@@ -20,7 +20,6 @@ docker exec -it manager docker stack deploy -c {visualizer.yml} visualizer
 docker exec -it manager docker stack rm {service name}
 ```
 
-```
 
 
 
