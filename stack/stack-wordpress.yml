@@ -1,0 +1,42 @@
+version: '3'
+services:
+  wordpress:
+    image: wordpress
+    deploy:
+      replicas: 1
+      placement:
+        constrains: [node.role != manager]
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: exampledb
+    depends_on:
+      - mysql
+    ports:
+      - 80:80
+    volumes:
+      - ./html:/var/www/html
+    networks:
+      - ch001
+
+  mysql:
+    image: msyql:5.7
+    deploy:
+      replicas: 1
+      placement:
+        constrains: [node.role != manager]
+    environment:
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - ch001
+
+networks:
+  ch001:
+    external: true
+    
