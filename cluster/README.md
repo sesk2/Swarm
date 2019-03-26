@@ -39,6 +39,7 @@ docker exec -it {node name} docker image ls
 # worker
 docker exec -it mangaer docker swarm join-token -q worker
 docker exec -it {node name} docker swarm join --token {JOIN_TOKEN} manager:2377
+
 # manger
 docker exec -it mangaer docker swarm join-token -q manager
 docker exec -it {node name} docker swarm join --token {JOIN_TOKEN} manager:2377
@@ -50,6 +51,7 @@ docker exec -it {node name} docker swarm join --token {JOIN_TOKEN} manager:2377
 docker exec -it {node name} docker swarm leave -f
 docker exec -it manager docker rm {node name}
 docker exec -it manager docker node ls
+
 #manger
 docker exec -it {node name} docker swarm leave -f
 docker exec -it {other manger} docker node demote {node name}
