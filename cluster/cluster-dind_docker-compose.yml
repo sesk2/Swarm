@@ -16,7 +16,7 @@ services:
     tty: true
     ports:
       - 8000:80
-      - 2377:2377
+      - 9000:9000
     expose:
       - 3375
     depends_on:
