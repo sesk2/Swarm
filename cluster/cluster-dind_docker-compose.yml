@@ -17,7 +17,8 @@ services:
     ports:
       - 8000:80
       - 5000:5000
-    expose: 3375
+    expose:
+      - 3375
     depends_on:
       - registry
     command: "--insecure-registry registry:5000"
