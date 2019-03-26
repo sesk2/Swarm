@@ -16,7 +16,7 @@ services:
     tty: true
     ports:
       - 8000:80
-      - 5000:5000
+      - 2377:2377
     expose:
       - 3375
     depends_on:
@@ -39,8 +39,8 @@ services:
       - manager
     command: "--insecure-registry registry:5000"
 
-  worker03:
-    container_name: worker03
+  worker02:
+    container_name: worker02
     image: docker:18.06.3-ce-dind
     privileged: true
     tty: true

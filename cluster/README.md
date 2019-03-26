@@ -10,9 +10,9 @@ docker-compose ps
 ## init config for cluster
 ```
 docker exec -it manager docker swarm init
- - Output: {JOIN_TOKEN}
-docker exec -it worker(01|02|03) docker swarm join --token {JOIN_TOKEN} manager:2377
-dokcer exec -it manager docker node ls
+JOIN_TOKEN=$(docker exec -it manager docker swarm join-token manager)
+docker exec -it worker(01|02|03) docker swarm join --token ${JOIN_TOKEN} manager:2377
+docker exec -it manager docker node ls
 ```
 
 ## push docker image to registry
