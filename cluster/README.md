@@ -3,7 +3,7 @@ Swarm Cluster. registry, manger, workernodes
 
 ## start dind containers
 ```
-docker-compose up -d -f cluster-dind_docker-compose.yml
+docker-compose -f cluster-dind_docker-compose.yml up -d
 docker-compose ps
 ```
 
