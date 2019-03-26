@@ -11,7 +11,9 @@ docker-compose ps
 ```
 docker exec -it manager docker swarm init
 JOIN_TOKEN=$(docker exec -it manager docker swarm join-token -q worker)
-docker exec -it worker(01|02|03) docker swarm join --token ${JOIN_TOKEN} manager:2377
+docker exec -it worker01 docker swarm join --token ${JOIN_TOKEN} manager:2377
+docker exec -it worker02 docker swarm join --token ${JOIN_TOKEN} manager:2377
+docker exec -it worker03 docker swarm join --token ${JOIN_TOKEN} manager:2377
 docker exec -it manager docker node ls
 ```
 
