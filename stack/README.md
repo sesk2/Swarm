@@ -3,7 +3,7 @@ Stack for Swarm
 
 ## run stack
 ```
-(docker exec -it manager docker network create --driver=overlay --attachable ch001)
+docker exec -it manager docker network create --driver=overlay --attachable {network name}
 docker exec -it manager docker stack deploy -c {stacks file} {stack name}
 docker exec -it manager docker stack services {stack name}
 docker exec -it manager docker stack ps {stack name}
